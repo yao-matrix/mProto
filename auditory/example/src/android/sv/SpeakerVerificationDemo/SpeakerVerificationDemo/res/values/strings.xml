@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">SpeakerVerificationDemo</string>
+	<string name="app_title">Speaker Verification</string>
+	<string name="VerificationButton">Verification</string>
+	<string name="EnrollmentButton">Enroll new user</string>
+	<string name="PlaybackButton">Playback speech</string>
+	<string name="TextPrompt">Please read the following to enroll yourself:</string>
+	<string name="TextContent">  China\'s elite would normally be watching the election more closely. But with its own once-a-decade leadership transition beginning days after the US votes, it has other matters on its mind.\n   For many in China, the election is of relatively limited interest. Some will follow results avidly, but others are only concerned about the impact on China.\n   \&quot;I like Obama\'s style. He is a very charming guy. Romney seems quite aggressive,\&quot; said Beijing-based marketing researcher, adding: \&quot;I\'m more concerned about who will have better policy towards China.\&quot;</string>
+	<string name="VerifyContent">Speaker verification technology makes possible for biometric identification authentation without memorizing a ton of passwords for different usages.</string>
+	<string name="StopEnrollmentButton">Stop enroll</string>
+	<string name="GotoVerifyButton">Go to verification</string>
+	<string name="GotoEnrollButton">Go to enrollment</string>
+	<string name="saySomething">Please press \"Start verification\" button and say something to verify your identification(read follwing text for say something casually)</string>
+	<string name="username">Please enter your name:</string>
+	<string name="SelectUser">Select your name:</string>
+	<string name="getnames">GetNames</string>
+	<string name="UserName">User Name</string>
+</resources>

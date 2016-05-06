@@ -1,0 +1,17 @@
+﻿Build started 2012/5/11 16:47:55.
+     1>Project "\\10.239.67.88\workshop2\mProto\mAudio\build\windows\libaudiorecog\libaudiorecog.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\libaudiorecog.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         libaudiorecog.vcxproj -> \\10.239.67.88\workshop2\mProto\mAudio\example\build\windows\AudioRecog\Debug\libaudiorecog.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\libaudiorecog.unsuccessfulbuild".
+         Touching "Debug\libaudiorecog.lastbuildstate".
+     1>Done Building Project "\\10.239.67.88\workshop2\mProto\mAudio\build\windows\libaudiorecog\libaudiorecog.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.85

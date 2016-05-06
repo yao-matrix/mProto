@@ -1,0 +1,82 @@
+/***************************************************************
+ * Auditory Sensing
+ *   Author: Yao, Matrix(yaoweifeng0301@126.com)
+ * Copyright(c) 2012
+ * ALL RIGHTS RESERVED
+ ***************************************************************/
+
++++++++++++++++++++++++++++++++++++
+2012-07-30
++++++++++++++++++++++++++++++++++++
+1. Front End
++ enhance pre-emphasis in boundary condition
++ re-enhance 32-bit MFCC feature extraction
+
+2. DTW based key phrase detection
++ distance metrics
+  ++ support 3 types of distance meterics
+     a. cosine distance
+	 b. Eclidean distance
+	 c. Manhattan distance
+	[Comments] Preliminary Experiments shows cosine distance has better discriminative ablity than the other two. Need a more comprehensive experiment to prove that.
+	           Also KL Divegence is not suitable for distance metrics since our feature vector has negative values, which can not be treated as a pdf of some distribution.
+
++ cepstrum compression schemes
+  ++ support 2 cepstrum compression schemes
+     a. log compression, which is a conventional compression type
+	 b. cubic root compression, which has better noise reslience by paper from Yahoo lab "Improving the noise-robustness of mel-frequency cepstral coefficients for speech recognition"
+	This is done to the input of DCT is MFCC calculation
+
++ DTW transition types
+  ++ support 2 DTW transition types
+     a. Levenshtein DTW transition, where DELETE pattern is described by [i - 1, j]-->[i, j] in DTW matrix
+	 b. typical DTW transition, where DELETE pattern is described by [i - 2, j -1]-->[i, j] in DTW matrix
+	[Comments] Preliminary Experiments shows cosine Levenshtein transition has better performance. Need a more comprehensive experiment to prove that.
+
+
+3. HMM based key phrase detection
+   first version of HMM based key phrase detection, by refering to:
+   [1] "A Voice Trigger System using Keyword and Speaker Recognition for Mobile Devices"
+
+
+4. Utility
++add wav file IO interface
++add performance benchmark utility
+
++++++++++++++++++++++++++++++++++++
+2012-09-28
++++++++++++++++++++++++++++++++++++
+1. Front End
++ add signal scaling into sig_normalize API, input stream will be scaled to the range [-0.5, 0.5]
++ add frame admission API, now only the frame with energy > -30dB compared with max energy will be admitted
++ update default Mel filter bank number from 40 to 26 for better key phrase detection performance
+
+2. GMM
++ refine gmm llr calc procedure, fix scaling error
+
+2. Console Example
++ add gmm test case
+
++++++++++++++++++++++++++++++++++++
+2012-10-29
++++++++++++++++++++++++++++++++++++
+1. Front End
++ GMM based EVAD work baseline done and merged into code base
+
+2. DTW
++ integrate Vogel Brian's DTW path length calculation algorithm into code base, which
+   path length = - 1, if vertical or horizontal path
+                |
+                 - sqrt( 2 ), if diagonal path
+3. GMM
++ add GMM Bayesian Adaptation code, now only mean adaptation is enabled
++ GMM part pass Valgrind memory check test
++ complete input arguments check mechanism
+
+4. HMM
++ HMM part pass Valgrind memory check test
+
+5. Others
++ add Brian's code base into prototype directory
++ add scripts directory for auto benchmark shell scripts
++ add DET benchmark helper functions, which will generate scores which input to NIST DETEval tool

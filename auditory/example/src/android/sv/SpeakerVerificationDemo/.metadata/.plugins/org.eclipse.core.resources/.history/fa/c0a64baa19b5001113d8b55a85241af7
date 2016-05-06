@@ -1,0 +1,11 @@
+package com.intel.activitysubscriber;
+
+
+public interface IAudioHandler
+{
+
+
+    public void callback1();
+
+    public void callback2();
+}

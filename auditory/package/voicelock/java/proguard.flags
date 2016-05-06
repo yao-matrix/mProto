@@ -1,0 +1,4 @@
+-keep class com.intel.awareness.voicelock.LibSVJNI {
+*;
+}
+

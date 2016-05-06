@@ -1,0 +1,7 @@
+chmod 0777 /system/bin/wakeonvoice_server
+
+service wov_server /system/bin/wakonvoice_server
+    class main
+    user system
+    group system
+

@@ -1,0 +1,55 @@
+/***************************************************************
+ * Intel MCG PSI Core TR project: mAudio, where m means magic
+ *   Author: Yao, Matrix( matrix.yao@intel.com )
+ * Copyright(c) 2012 Intel Corporation
+ * ALL RIGHTS RESERVED
+ ***************************************************************/
+
+- 2012-12-03 -
+Q: How to install Speech AWARE demo package?
+A: step 1: unzip the package to your PC
+   step 2: make sure your device is connected to your PC
+   step 3: run adbpush.sh( if windows, change adbpush.sh to adbpush.bat ), it will push all needed binary into your device
+   step 4: type command "adb shell" to login device console
+   step 5: To use WakeOnVoice demo launch wakeonvoice_server in background is needed, as:
+           $ wakeonvoice_server &
+   step 6: To use Speaker Verification demo launch speakerverification_server in background is needed, as:
+           $ speakerverification_server &
+
+Q: How to use Speech AWARE demo package?
+A: To use Wake On Voice demo:
+   step 1: click WakeOnVoice icon in your device
+   step 2: enroll your keyword by clicking "Enroll command" button, pls MAKE SURE:
+           a. after enroll, you need click "Review command" to playback your enrolled keyword. If not as your expectation, pls enroll again.
+   step 3: start recognition by clicking microphone icon in the bottom of UI, and say your enrolled command or other keywords to test demo.
+
+   To use Speaker Verification demo:
+   step 1: click SpeakerVerification icon in your device
+   step 2: enroll your keyword by clicking "Enroll new user" button, and an dialog window will pop out to require you to input your name, just
+           input your name and click "confirm". After click "confirm", pls read the text in screen, and press "Stop enroll" button after you finished.
+           Application need take 1~2 minutes to generate speaker model based on the enroollment speech. A pop-up window will show while enroll success.
+           After enrollment, you can press "Go to verification" button to verification page. You can also directly press "Go to verification" button
+           if you enrolled yourself before.
+   step 3: click the spinner to select your name, and press "Start verification" button to say something, or if you don't know what to say, we supply a
+           text in screen, you can just read it. After you said, pls press "Stop verification" button. If you are the legitimate user you declared, phone
+           phone will utter "yes lord" to welcome you; else phone will utter "hello intruder" to mock on you.
+   step 4: you also can press "Go to enrollment" button to back to enrollment page.
+
+Q: How to use demo's voice unlock feature?
+A: Currently, our Wake On Voice demo supply voice unlock feature.
+   step 1: launch WakeOnVoiceDemo as Q2 showed.
+   step 2: press power button while "recognition" icon is on, and this will let phone into sleep state with screen off.
+   step 3: say your keyword, and if match, screen will on and keyguard will unlock the phone with a voice "yes sir, welcome back".
+
+Q: Any known issues?
+A: 1. It's found that Jellybean ALSA driver has about 5~10 seconds latency to be opened,
+      so pls wait 5~10 seconds after press "Start Recognition" or "Start Enrollment" button for ALSA open audio devices.
+      It's supposed be a audio driver optimization issue, since we didn't find this issue in ICS builds.
+   2. Also it's found that Jellybean ALSA driver is not so stable, "write I/O error" issue is often found, and in this case, you only can reboot your phone to make demo work.
+   3. For speaker verification demo, the first TTS utterance will not said even we found correct result form server, AudioStreamOutAlsa will print log "wait_pcm timeout", and
+      after first time, all go well, we suppose it's not JAVA code issue, so we will not fix it.
+
+Q: Install fail with "INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES"
+A: This is mostly because you have a same apk in your phone which didn't build in the same machine with current apk, just find the old one and uninstall it will OK.
+
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, WakeOnVoiceDemoActivity!</string>
+    <string name="app_name">OOBWakeOnVoice</string>
+    <string name="title_wakeonvoice">OOBWakeOnVoice</string>
+    <string name="RecognitionButton">Recognition</string>
+    <string name="EnrollmentButton">Enroll command</string>
+    <string name="PlaybackButton">Review command</string>
+    <string name="debug">debug</string>
+</resources>

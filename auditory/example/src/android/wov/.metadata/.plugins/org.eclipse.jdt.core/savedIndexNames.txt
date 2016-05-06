@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+/workshop1/repo/ics/mAudio/example/src/android/.metadata/.plugins/org.eclipse.jdt.core
+2736042965.index
+438825986.index
+1780046048.index

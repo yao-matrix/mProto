@@ -1,0 +1,123 @@
+/***************************************************************
+ * Auditory Sensing with below features:
+     ** sound trigger
+     ** speaker verification
+     ** speaker recognition
+     ** audio context
+ * Author: Yao, Matrix (yaoweifeng0301@126.com)
+ * ALL RIGHTS RESERVED
+ ***************************************************************/
+
+************** Generic Linux ********************
+
+---------------------
+Pre-requirements
+---------------------
+We rely on OpenCV to do k-means clustering and GMM EM training. So, before build, you need install
+OpenCV with version no less than 2.4
+
+---------------------
+1.  build source code
+---------------------
+$ . ./build.sh
+# This step will generate a static libaudiorecog.a in ./lib directory, and a binary WakeonVoice in ./bin directory
+
+--------------------
+2.  Demo
+--------------------
+IMPORTANT: (1) Before test, you should make templates and test files available in some folder, template folder and test folder should be separeated,
+               even they actually the same data, two copies in different folder name is needed.
+           (2) While input template/test stream path to demo, absolute path is needed if you didn't put the binary under the same folder with
+               template/test folder.
+           (3) Performance Profiling only can work on Intel lab test base currently.
+
+*********************
+ file2file test
+*********************
+$ cd ./bin
+$ ./WakeonVoice
+you can see following prompt:
+  pls select desired test case with index:
+	  0 - dtw-tfi  test
+	  1 - dtw-mfcc test
+	  2 - dtw-mfcc cascade test
+	  3 - hmm-mfcc test
+	  4 - dtw-mfcc performance profile
+	  5 - dtw-mfcc naive multi-enroll performance profile
+	  6 - dtw-mfcc constructive multi-enroll performance profile
+	  7 - dtw-mfcc ss multi-enroll performance profile
+	  8 - hmm-mfcc performance profile
+	  9 - pitch tracking test
+	  10 - denoise test
+
+  You can choose 1 for MFCC-DTW test, and input template folder and test folder path, also test threshold, an example is as below:
+   $ 1
+   $ ./template
+   $ ./test
+   $ 0.35
+
+*********************
+ performance profiling
+*********************
+$ cd ./bin
+$ ./WakeonVoice
+you can see following prompt:
+  pls select desired test case with index:
+	  0 - dtw-tfi  test
+	  1 - dtw-mfcc test
+	  2 - dtw-mfcc cascade test
+	  3 - hmm-mfcc test
+	  4 - dtw-mfcc performance profile
+	  5 - dtw-mfcc naive multi-enroll performance profile
+	  6 - dtw-mfcc constructive multi-enroll performance profile
+	  7 - dtw-mfcc ss multi-enroll performance profile
+	  8 - hmm-mfcc performance profile
+	  9 - pitch tracking test
+	  10 - denoise test
+
+  You can choose 4 for MFCC-DTW performance profiling, and input template folder and test folder path, also min test threshold
+  and max threshold and threshold test step need to be specified. An example as below:
+   $ 4
+   $ ./template
+   $ ./test
+   $ 0.2
+   $ 0.5
+   $ 0.02
+    Application will go through the all template files and test files under the threshold between min threshold and max threshold with a step,
+  like in this example all threshold from 0.2, 0.22, 0.24, ..., 0.5 will be go throughed.
+    Profiling report can be found in the same folder as binary, benchmark_dtw-mfcc-x-x-x-x_csv.log give a per keyword statistics on each threshold,
+  the data format is "comma separated values", format as following:
+        <keyword>  <threshold>  <tp>  <tn>    <fp>  <fn>
+        academy,   0.40,        334,  45970,  2459,  68
+  You can open it directly with Excel.
+    Also a benchmark_dtw-mfcc-0-0-0-1_statistics.log is given to give a detailed performance for each template file, example as below:
+         ***********threshold: 0.40 ************
+	        ***********template: 4-listentome-4_16k.wav************
+	         total: 1191  { tp[10], tn[1138], fp[43], fn[0] }
+	         FAR(False Acceptance Rate): 0.036
+	         FRR(False Rejection Rate) : 0.000
+
+
+***************** Android ***************************
+
+---------------------
+1.  build source code
+---------------------
+$ mm -B
+
+--------------------
+2. push to phone
+--------------------
+$ . ./adbpush.sh
+
+--------------------------
+3. launch service in phone
+-------------------------
+$ adb shell
+$ cd /system/bin
+$ wakeonvoice&
+
+--------------------
+4. run application
+--------------------
+press the WakeOnVoiceDemo icon on phone to start

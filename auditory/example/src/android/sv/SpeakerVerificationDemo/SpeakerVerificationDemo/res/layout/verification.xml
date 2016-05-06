@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/selectUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/SelectUser"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/selectuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/selectUser"
+        android:text="@string/SelectUser" />
+
+    <Button
+        android:id="@+id/gotoEnrollButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/GotoEnrollButton"
+        android:textColor="#3399CC" />
+
+    <TextView
+        android:id="@+id/verifyPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/selectuser"
+        android:layout_marginTop="47dp"
+        android:text="@string/saySomething"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/verifyContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/verifyPrompt"
+        android:background="#DDDDDD"
+        android:text="@string/VerifyContent"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gotoEnrollButton"
+        android:layout_centerHorizontal="true" />
+
+    <ToggleButton
+        android:id="@+id/VerificationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verifyContent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@+id/VerificationButton"
+        android:textOff="Start verification"
+        android:textOn="Stop verification" />
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+
+set timeout -1
+
+exec mkdir ./benchmarklog
+spawn  ./WakeonVoice
+expect "*index:"
+send "3\r"
+expect "*template wav stream's path:"
+send "template\r"
+expect "*test wav stream's path:"
+send "car-0\r"
+expect "*lowest test threshold:"
+send "0.24\r"
+expect "*max test threshold:"
+send "0.42\r"
+expect "*threshold step:"
+send "0.02\r"
+expect "DTW-MFCC Benchmark finished"
+exec  mv benchmark_dtw-mfcc-0-0-0-1_statistics.log ./benchmarklog/benchmark_dtw-mfcc_car-SNR0_statistics.log
+exec  mv benchmark_dtw-mfcc-0-0-0-1_csv.log ./benchmarklog/benchmark_dtw-mfcc_car-SNR0_csv.log
+
+
+interact
+

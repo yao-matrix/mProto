@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:background="@drawable/bg_top_bar" >
+
+        <Button
+            android:id="@+id/EnrollmentButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@drawable/ic_rec"
+            android:text="@string/EnrollmentButton"
+            android:textSize="15dip" />
+
+        <Button
+            android:id="@+id/PlaybackButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg"
+            android:drawableLeft="@drawable/ic_playback"
+            android:text="@string/PlaybackButton"
+            android:textSize="15dip" />
+
+    </LinearLayout>
+
+    <ToggleButton
+        android:id="@+id/RecognitionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/togglebutton_bg"
+        android:text="@+id/RecognitionButton"
+        android:textOff=""
+        android:textOn="" />
+
+
+</RelativeLayout>

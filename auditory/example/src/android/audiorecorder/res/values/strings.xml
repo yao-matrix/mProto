@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, AudioRecorderActivity!</string>
+    <string name="app_name">AudioRecorder</string>
+    <string name="trunon">Turn On</string>
+    <string name="trunoff">Turn Off</string>
+    <string name="_sdcard_">/sdcard/</string>
+</resources>

@@ -1,0 +1,12 @@
+!SESSION 2012-06-13 13:24:52.278 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-06-13 13:27:38.980
+!MESSAGE Failed to load properties file for project 'WakeOnVoiceDemo'
+
+!ENTRY org.eclipse.ui 4 4 2012-06-13 13:30:24.858
+!MESSAGE Invalid preference page path: XML Syntax

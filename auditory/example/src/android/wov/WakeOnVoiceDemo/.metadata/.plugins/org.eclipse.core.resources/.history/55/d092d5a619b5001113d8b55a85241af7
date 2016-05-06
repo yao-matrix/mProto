@@ -1,0 +1,53 @@
+package com.intel.activitysubscriber;
+import android.util.Log;
+
+
+public class Audio_Classifier_JNI{
+
+private static IAudioHandler mHandler;
+private final static String TAG = "Audio_Classifier_JNI";
+public native void audio_start();
+public native void audio_init();
+public native void audio_stop();
+static
+{
+     Log.i(TAG, "System.loadLibrary();");
+     System.loadLibrary("audiojni");
+}
+
+public static void registerEventHandler(IAudioHandler h)
+{
+    Log.i(TAG,"registerEventHandler");
+    mHandler = h;
+}
+    
+static public Audio_Classifier_JNI Inst;
+
+public  void callback1()
+{
+    Log.i(TAG,"call_back1  true");
+    mHandler.callback1();
+}
+
+public  void callback2()
+{
+    mHandler.callback2();
+    Log.i(TAG,"call_back2  false");
+}
+
+public void startaudio()
+{
+	audio_start();
+}
+
+public void initaudio()
+{
+	audio_init();
+}
+
+public void stopaudio()
+{
+	audio_stop();
+}
+}
+

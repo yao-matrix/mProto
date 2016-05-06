@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.intel.OOBWakeOnVoice"
+    android:sharedUserId="android.uid.system"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="16" />
+        <uses-permission android:name="android.permission.WAKE_LOCK"/>
+        <uses-permission android:name="android.permission.DEVICE_POWER" />
+        <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+        <uses-permission android:name="android.permission.BOOT_COMPLETED" />
+        <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+        <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.REBOOT" />
+
+    <application
+        android:icon="@drawable/ic_launcher_wakeonvoice"
+        android:label="@string/title_wakeonvoice"
+        android:theme="@android:style/Theme.Holo.Light" >
+        <activity
+            android:name=".OOBWakeOnVoiceDemoActivity"
+            android:label="@string/title_wakeonvoice"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".OOBWakeOnVoiceService"/>
+    </application>
+
+</manifest>

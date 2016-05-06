@@ -1,0 +1,224 @@
+!SESSION 2012-09-12 14:59:24.779 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_06
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.rcp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.rcp.product
+
+!ENTRY org.eclipse.core.resources 4 4 2012-09-12 15:02:09.998
+!MESSAGE Exception occurred while saving project preferences: /com.intel.WakeOnVoice.WakeOnVoiceDemoActivity/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/workshop1/repo/ics/mAudio/example/src/android/WakeOnVoiceDemo/WakeOnVoiceDemo/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:566)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:590)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:440)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2951)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:434)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:343)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:261)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:775)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:620)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:553)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:365)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2012-09-12 15:02:09.999
+!MESSAGE A resource already exists on disk '/workshop1/repo/ics/mAudio/example/src/android/WakeOnVoiceDemo/WakeOnVoiceDemo/.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2012-09-12 15:02:10.039
+!MESSAGE Exception occurred while saving project preferences: /com.intel.WakeOnVoice.WakeOnVoiceDemoActivity/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/workshop1/repo/ics/mAudio/example/src/android/WakeOnVoiceDemo/WakeOnVoiceDemo/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:566)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:590)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:440)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2951)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:436)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:343)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:261)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:775)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:620)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:553)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:365)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2012-09-12 15:02:10.039
+!MESSAGE A resource already exists on disk '/workshop1/repo/ics/mAudio/example/src/android/WakeOnVoiceDemo/WakeOnVoiceDemo/.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2012-09-12 15:02:10.042
+!MESSAGE Exception occurred while saving project preferences: /com.intel.WakeOnVoice.WakeOnVoiceDemoActivity/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/workshop1/repo/ics/mAudio/example/src/android/WakeOnVoiceDemo/WakeOnVoiceDemo/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:95)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:566)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:590)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:440)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2951)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:438)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:343)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProject(ProjectHelper.java:261)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:775)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:620)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:553)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:365)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2012-09-12 15:02:10.042
+!MESSAGE A resource already exists on disk '/workshop1/repo/ics/mAudio/example/src/android/WakeOnVoiceDemo/WakeOnVoiceDemo/.settings'.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:07:59.459
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:07:59.460
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:08:04.284
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:08:04.285
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:08:06.104
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:08:06.105
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:09.161
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:09.161
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:13.882
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:13.883
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:20.815
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:20.816
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:34.311
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:34.311
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:49.972
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:49.972
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:50.271
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:50.272
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:53.640
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:53.640
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:56.462
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:10:56.462
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:11:03.511
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:11:03.511
+!MESSAGE main.xml: Couldn't resolve resource @string/app_name
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-12 15:15:13.250
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-14 09:42:55.249
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-14 09:42:59.995
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-14 09:43:08.439
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-14 09:43:26.015
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-14 09:43:29.868
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-14 09:43:32.055
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-09-14 09:43:35.645
+!MESSAGE main.xml: Couldn't resolve resource @drawable/ic_launcher
+!SESSION 2012-10-16 15:07:47.332 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_06
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.rcp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.rcp.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-16 15:07:53.160
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project com.intel.WakeOnVoice.WakeOnVoiceDemoActivity
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-16 15:07:53.886
+!MESSAGE fileChanged: failed to find manifest package for project com.intel.WakeOnVoice.WakeOnVoiceDemoActivity
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-16 15:07:56.073
+!MESSAGE fileChanged: failed to find manifest package for project com.intel.WakeOnVoice.WakeOnVoiceDemoActivity
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-16 15:07:57.862
+!MESSAGE File is Out of sync
+!STACK 0
+com.android.io.StreamException: org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/com.intel.WakeOnVoice.WakeOnVoiceDemoActivity/AndroidManifest.xml'.
+	at com.android.ide.eclipse.adt.io.IFileWrapper.getContents(IFileWrapper.java:55)
+	at com.android.sdklib.xml.AndroidManifestParser.parse(AndroidManifestParser.java:607)
+	at com.android.ide.eclipse.adt.internal.project.AndroidManifestHelper.parseUnchecked(AndroidManifestHelper.java:75)
+	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:419)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/com.intel.WakeOnVoice.WakeOnVoiceDemoActivity/AndroidManifest.xml'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at com.android.ide.eclipse.adt.io.IFileWrapper.getContents(IFileWrapper.java:49)
+	... 15 more
