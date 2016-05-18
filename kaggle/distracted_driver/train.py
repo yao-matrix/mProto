@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import cv2
 import os
+import cv2
 import glob
 import datetime
 import logging
@@ -13,9 +13,8 @@ from keras.utils import np_utils
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.convolutional import Convolution2D, MaxPooling2D
-from keras.models import model_from_json
 
-from sklearn.cross_validation import train_test_split
+from ml_utils import split_cv, save_model
 
 logger = logging.getLogger('train')
 logger.setLevel(logging.DEBUG)
@@ -29,20 +28,19 @@ ch.setFormatter(formatter)
 logger.addHandler(fh)
 logger.addHandler(ch)
 
+def load_img(img_path, img_rows, img_cols):
+    # read image to a grayscale buffer
+    # print img_path
+    img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
+    rows, cols = img.shape
+    # print rows, cols
 
-def load_im(path):
-  global img_rows, img_cols
-  # read image to a grayscale buffer
-  img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    # print img_rows, img_cols
 
-  # rows, cols = img.shape
-  # print rows, cols
+    resized = cv2.resize(img, (img_cols, img_rows), interpolation = cv2.INTER_CUBIC);
+    return resized
 
-  resized = cv2.resize(img, (img_cols, img_rows), interpolation = cv2.INTER_CUBIC);
-
-  return resized
-
-def load_train():
+def load_train(img_rows, img_cols):
   X_train = []
   Y_train = []
   i = 0
@@ -51,22 +49,12 @@ def load_train():
     files = glob.glob(path)
     for fl in files:
       i += 1
-      img = load_im(fl)
+      # print fl
+      img = load_img(fl, img_rows, img_cols)
       X_train.append(img)
       Y_train.append(j)
   logger.info("%d samples in total" % (i))
   return X_train, Y_train
-
-def split_cv(data, labels):
-  random_state = 10
-  train, validation, train_label, validation_label = train_test_split(data, labels, test_size = labels.shape[0] / 10, random_state = random_state)
-  return train, train_label, validation, validation_label
-  
-
-def save_model(model):
-  json_string = model.to_json()
-  open('arch.json', 'w').write(json_string)
-  model.save_weights('weight.h5', overwrite=True)
 
 img_rows = 96
 img_cols = 128
@@ -82,7 +70,7 @@ if __name__ == "__main__":
   logger.info("start training")
 
   # read training data
-  train_data, train_labels = load_train()
+  train_data, train_labels = load_train(img_rows, img_cols)
   train_data = np.array(train_data, dtype = np.uint8)
   train_labels = np.array(train_labels, dtype = np.uint8)
   train_data = train_data.reshape(train_data.shape[0], 1, img_rows, img_cols)
@@ -119,9 +107,9 @@ if __name__ == "__main__":
 
   logger.info("model training complete")
 
-  score = model.evaluate(validation, validation_label, show_accuracy = True, verbose = 0)
+  score = model.evaluate(validation, validation_label, verbose = 0)
 
-  logger.info("evaluate score: %f" % (score))
+  logger.info("validation score: %f" % (score))
 
   save_model(model)
   logger.info("model saved")
