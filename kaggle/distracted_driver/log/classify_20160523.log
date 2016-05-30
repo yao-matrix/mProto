@@ -1,0 +1,11 @@
+[2016-05-23 20:57:48,915][classify][INFO]: read test images
+[2016-05-23 20:59:05,169][classify][INFO]: read 7972 images from 79726
+[2016-05-23 21:00:20,341][classify][INFO]: read 15944 images from 79726
+[2016-05-23 21:01:34,595][classify][INFO]: read 23916 images from 79726
+[2016-05-23 21:02:48,569][classify][INFO]: read 31888 images from 79726
+[2016-05-23 21:04:02,960][classify][INFO]: read 39860 images from 79726
+[2016-05-23 21:05:17,501][classify][INFO]: read 47832 images from 79726
+[2016-05-23 21:06:31,324][classify][INFO]: read 55804 images from 79726
+[2016-05-23 21:07:44,756][classify][INFO]: read 63776 images from 79726
+[2016-05-23 21:08:58,754][classify][INFO]: read 71748 images from 79726
+[2016-05-23 21:10:13,291][classify][INFO]: read 79720 images from 79726

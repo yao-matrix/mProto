@@ -1,0 +1,8 @@
+[2016-05-23 18:43:45,587][train][INFO]: start training
+[2016-05-23 18:43:59,755][train][INFO]: start training
+[2016-05-23 19:15:50,811][train][INFO]: 22424 samples in total
+[2016-05-23 19:15:52,757][train][INFO]: read training data complete
+[2016-05-23 19:15:53,891][train][INFO]: data split complete
+[2016-05-23 20:18:26,424][train][INFO]: model training complete
+[2016-05-23 20:19:54,683][train][INFO]: validation score: 0.257117
+[2016-05-23 20:19:55,353][train][INFO]: model saved
