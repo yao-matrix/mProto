@@ -1,10 +1,3 @@
-/***************************************************************
- * Intel MCG PSI Core TR project: mAudio, where m means magic
- *   Author: Yao, Matrix( matrix.yao@intel.com )
- * Copyright(c) 2012 Intel Corporation
- * ALL RIGHTS RESERVED
- ***************************************************************/
-
 #if !defined( _AUDIO_DEF_H )
 #define _AUDIO_DEF_H
 

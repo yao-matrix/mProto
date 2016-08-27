@@ -8,7 +8,7 @@
 **      Organization: University of Maryland
 **
 **       ----------------------------------------------------------
-**       Author : YAO Matrix( matrix.yao@intel.com )
+**       Author : YAO Matrix( yaoweifeng0301@gmail.com )
 **       Purpose: merge
 **       Date   : 2012/06/05
 **       ----------------------------------------------------------
