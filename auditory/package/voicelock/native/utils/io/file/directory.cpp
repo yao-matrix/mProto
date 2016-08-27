@@ -1,12 +1,3 @@
-/***************************************************************
- * Intel MCG PSI Core TR project: mAudio, where m means magic
- *   Author: Yao, Matrix( matrix.yao@intel.com )
- * NOTE: for pre-defined compiler Macros, you can refer to:
- *        http://sourceforge.net/p/predef/wiki/OperatingSystems/
- * Copyright(c) 2013 Intel Corporation
- * ALL RIGHTS RESERVED
- ***************************************************************/
-
 #if defined( _WIN32 )
 #include <windows.h>
 #include <FileAPI.h>
