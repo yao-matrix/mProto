@@ -29,7 +29,6 @@ IMPORTANT: (1) Before test, you should make templates and test files available i
                even they actually the same data, two copies in different folder name is needed.
            (2) While input template/test stream path to demo, absolute path is needed if you didn't put the binary under the same folder with
                template/test folder.
-           (3) Performance Profiling only can work on Intel lab test base currently.
 
 *********************
  file2file test
