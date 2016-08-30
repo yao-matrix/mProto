@@ -478,8 +478,8 @@ public class OOBWakeOnVoiceDemoActivity extends Activity implements IOOBWakeOnVo
 		if ( mNeedWelcome )
 		{
 			AlertDialog.Builder welcome = new AlertDialog.Builder( OOBWakeOnVoiceDemoActivity.this );
-			welcome.setMessage( "Hello! My name is Intel and you can call up me by saying \" Hello Intel\". You can also press the \"enroll\" button " +
-			                    "and enroll your own \"Hello Intel\" voice, after which I'll only reply you.\n                          Enjoy! " )
+			welcome.setMessage( "Hello! My name is Micky and you can call up me by saying \" Hello Micky\". You can also press the \"enroll\" button " +
+			                    "and enroll your own \"Hello Micky\" voice, after which I'll only reply you.\n                          Enjoy! " )
 			       .setPositiveButton( "OK", null );
 			AlertDialog wel = welcome.create();
 			wel.show();
