@@ -1,15 +1,18 @@
 ## Neural Networks 
 # caffe
-# sudo git clone https://github.com/BVLC/caffe.git &
+sudo git clone https://github.com/BVLC/caffe.git &
 
 # mxnet
-# sudo git clone --recursive https://github.com/dmlc/mxnet &
+sudo git clone --recursive https://github.com/dmlc/mxnet &
 
 # CNTK
 sudo git clone https://github.com/Microsoft/CNTK.git &
 
 # Kaldi
 sudo git clone https://github.com/kaldi-asr/kaldi.git &
+
+# Paddle
+sudo git clone https://github.com/baidu/Paddle.git &
 
 ## General Machine Learning
 # TensorFlow
@@ -63,6 +66,7 @@ sudo git clone https://github.com/scikit-image/scikit-image.git &
 
 
 ## fundamentals
+# boost
 sudo git clone --recursive https://github.com/boostorg/boost.git &
 
 wait
