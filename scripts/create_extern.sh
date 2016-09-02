@@ -2,6 +2,12 @@
 # caffe
 sudo git clone https://github.com/BVLC/caffe.git &
 
+# caffe-multinode
+sudo git clone https://github.com/01org/caffe.git -b multi_node ./caffe_multinode &
+
+# py-faster-rcnn
+sudo git clone --recursive https://github.com/rbgirshick/py-faster-rcnn.git &
+
 # mxnet
 sudo git clone --recursive https://github.com/dmlc/mxnet &
 
@@ -15,6 +21,9 @@ sudo git clone https://github.com/kaldi-asr/kaldi.git &
 sudo git clone https://github.com/baidu/Paddle.git &
 
 ## General Machine Learning
+# defacto
+sudo git clone --recursive https://github.com/dmlc/difacto.git &
+
 # TensorFlow
 sudo git clone https://github.com/tensorflow/tensorflow.git &
 
