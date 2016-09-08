@@ -42,6 +42,9 @@ sudo git clone https://github.com/apache/mahout.git &
 sudo git clone https://github.com/mimno/Mallet.git &
 
 
+## OCR
+sudo git clone https://github.com/tesseract-ocr/tesseract.git &
+
 ## Infrastructure
 # spark
 sudo git clone https://github.com/apache/spark.git &
