@@ -58,6 +58,9 @@ sudo git clone https://github.com/twitter/heron.git &
 # parameter server
 sudo git clone https://github.com/dmlc/ps-lite &
 
+# singa
+sudo git clone https://github.com/apache/incubator-singa.git &
+
 
 ## Data Analysis
 # pandas
