@@ -28,7 +28,7 @@ popd
 
 # python packages
 sudo apt-get install -y python-dev python-pip libpython-dev
-sudo apt-get install -y python-numpy python-protobuf
+sudo apt-get install -y python-numpy python-scipy python-matplotlib python-sklearn python-skimage python-h5py python-protobuf python-leveldb python-networkx python-nose python-pandas
 sudo apt-get install -y swig doxygen
 pip install 'sphinx>=1.4.0'
 pip install sphinx_rtd_theme breathe recommonmark

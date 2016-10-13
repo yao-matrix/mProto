@@ -1,4 +1,4 @@
-## Neural Networks 
+## Deep Learning
 # caffe
 sudo git clone https://github.com/BVLC/caffe.git &
 
@@ -19,6 +19,10 @@ sudo git clone https://github.com/kaldi-asr/kaldi.git &
 
 # Paddle
 sudo git clone https://github.com/baidu/Paddle.git &
+
+# DeepBench
+sudo git clone https://github.com/baidu-research/DeepBench.git &
+
 
 ## General Machine Learning
 # defacto
@@ -45,6 +49,7 @@ sudo git clone https://github.com/mimno/Mallet.git &
 ## OCR
 sudo git clone https://github.com/tesseract-ocr/tesseract.git &
 
+
 ## Infrastructure
 # spark
 sudo git clone https://github.com/apache/spark.git &
@@ -67,7 +72,6 @@ sudo git clone https://github.com/apache/incubator-singa.git &
 sudo git clone https://github.com/pydata/pandas.git &
 
 
-
 ## Multimedia
 # ffmpeg
 sudo git clone https://github.com/FFmpeg/FFmpeg.git &
@@ -79,8 +83,7 @@ sudo git clone https://github.com/opencv/opencv.git &
 sudo git clone https://github.com/scikit-image/scikit-image.git &
 
 
-
-## fundamentals
+## Fundamentals
 # boost
 sudo git clone --recursive https://github.com/boostorg/boost.git &
 
