@@ -3,6 +3,13 @@ sudo apt-get update
 # vim
 sudo apt-get install -y vim
 
+# R
+sudo apt-get install r-base r-base-dev
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+sudo sh -c "echo 'deb http://cran.r-project.org/bin/linux/ubuntu precise/' >> /etc/apt/sources.list"
+sudo apt-get update
+sudo apt-get install r-base r-base-dev
+
 # version control
 sudo apt install -y subversion git
 
