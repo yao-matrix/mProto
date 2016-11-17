@@ -294,7 +294,7 @@ if __name__ == "__main__":
     uids = [1270739603, 2769807303]
 
     fetcher = Fetcher()
-    fetcher.login(username = "xxxx@126.com", pwd = "******")
+    fetcher.login(username = "yaoweifeng0301@126.com", pwd = "matrix@88")
 
     db_para = {'host':'localhost', \
                'user':'root',\
