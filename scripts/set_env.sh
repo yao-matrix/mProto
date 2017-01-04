@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get update
 
 # vim
@@ -33,6 +35,12 @@ make
 sudo cp *a /usr/lib
 popd
 
+# set pip source
+if [! -d "~/.pip"]; then
+    sudo mkdir ~/.pip
+fi
+cp pip.conf ~/.pip/
+
 # python packages
 sudo apt-get install -y python-dev python-pip libpython-dev
 sudo apt-get install -y python-numpy python-scipy python-matplotlib python-sklearn python-skimage python-h5py python-protobuf python-leveldb python-networkx python-nose python-pandas
@@ -52,3 +60,4 @@ sudo apt-get install -y libfdk-aac-dev
 sudo apt-get install -y libmp3lame-dev
 sudo apt-get install -y libopus-dev
 sudo apt-get install -y ffmpeg
+
