@@ -23,5 +23,5 @@ print psnr1
 
 cv2.imshow('original image', img)
 cv2.waitKey(0)
-cv2.imshow('image', img2)
+cv2.imshow('roi encoded image', img2)
 cv2.waitKey(0)

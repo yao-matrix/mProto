@@ -294,11 +294,11 @@ if __name__ == "__main__":
     uids = [1270739603, 2769807303]
 
     fetcher = Fetcher()
-    fetcher.login(username = "yaoweifeng0301@126.com", pwd = "matrix@88")
+    fetcher.login(username = "***@126.com", pwd = "******")
 
     db_para = {'host':'localhost', \
                'user':'root',\
-               'pwd':'matrix@88',\
+               'pwd':'*****',\
                'db':'weibo',\
                'port':3306,\
                'charset':'utf8'}
