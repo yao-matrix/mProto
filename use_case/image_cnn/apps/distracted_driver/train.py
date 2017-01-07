@@ -6,7 +6,6 @@ import cv2
 import glob
 import datetime
 import logging
-
 import numpy as np
 
 from keras.utils import np_utils
@@ -14,13 +13,15 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.convolutional import Convolution2D, MaxPooling2D
 
-from ml_utils import split_cv, save_model
+from data_io import load_imageset, split_cv
+from metrics import precision, error_rate
 
+module_dir = os.path.dirname(os.path.abspath(__file__))
+module_name = os.path.basename(__file__).split('.')[0]
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-log_path = os.path.join(current_dir, os.path.pardir, 'log', datetime.date.today().strftime('%Y%m%d') + '.log')
+log_path = os.path.join(module_dir, os.path.pardir, 'logs', module_name + '_' + datetime.date.today().strftime('%Y%m%d') + '.log')
 
-logger = logging.getLogger('train')
+logger = logging.getLogger(module_name)
 logger.setLevel(logging.DEBUG)
 fh = logging.FileHandler(log_path)
 ch = logging.StreamHandler()
@@ -32,36 +33,9 @@ ch.setFormatter(formatter)
 logger.addHandler(fh)
 logger.addHandler(ch)
 
-def load_img(img_path, img_rows, img_cols):
-    # read image to a grayscale buffer
-    # print img_path
-    img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
-    rows, cols = img.shape
-    # print rows, cols
 
-    # print img_rows, img_cols
-
-    resized = cv2.resize(img, (img_cols, img_rows), interpolation = cv2.INTER_CUBIC);
-    return resized
-
-def load_train(img_rows, img_cols):
-  X_train = []
-  Y_train = []
-  i = 0
-  for j in range(10):
-    path = os.path.join('/workshop2/data/driver-distraction', 'train', 'c' + str(j), '*.jpg')
-    files = glob.glob(path)
-    for fl in files:
-      i += 1
-      # print fl
-      img = load_img(fl, img_rows, img_cols)
-      X_train.append(img)
-      Y_train.append(j)
-  logger.info("%d samples in total" % (i))
-  return X_train, Y_train
-
-img_rows = 96
-img_cols = 128
+img_height = 96
+img_width = 128
 
 batch_size = 64
 nb_classes = 10
@@ -73,16 +47,11 @@ nb_conv = 3
 if __name__ == "__main__":
   logger.info("start training")
 
+  train_set_folder = os.path.join(module_dir, os.path.pardir, os.path.pardir, 'data/test')
+  test_set_folder = os.path.join(module_dir, os.path.pardir, os.path.pardir, 'data/test')
+
   # read training data
-  train_data, train_labels = load_train(img_rows, img_cols)
-  train_data = np.array(train_data, dtype = np.uint8)
-  train_labels = np.array(train_labels, dtype = np.uint8)
-  train_data = train_data.reshape(train_data.shape[0], 1, img_rows, img_cols)
-  train_labels = np_utils.to_categorical(train_labels, nb_classes)
-  train_data = train_data.astype('float32')
-  train_data /= 127.5
-  train_data -= 1.0
-  logger.info("read training data complete")
+  train_data, train_labels = load_imageset(train_set_folder, to_img_size = (img_height, img_width, 1), ext = 'png')
 
   # split for cross validation
   train, train_label, validation, validation_label = split_cv(train_data, train_labels)
@@ -90,13 +59,13 @@ if __name__ == "__main__":
 
   # build stacking layers
   model = Sequential()
-  model.add(Convolution2D(nb_filters, nb_conv, nb_conv, border_mode = 'valid', input_shape = (1, img_rows, img_cols)))
+  model.add(Convolution2D(nb_filters, nb_conv, nb_conv, border_mode = 'valid', input_shape = (1, img_height, img_width)))
   model.add(Activation('relu'))
 
   model.add(Convolution2D(nb_filters, nb_conv, nb_conv))
   model.add(Activation('relu'))
 
-  model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+  model.add(MaxPooling2D(pool_size = (nb_pool, nb_pool)))
   model.add(Dropout(0.25))
 
   model.add(Flatten())
