@@ -42,7 +42,7 @@ logger.addHandler(ch)
 
 SEED = 66478  # Set to None for random seed.
 BATCH_SIZE = 64
-NUM_EPOCHS = 200
+NUM_EPOCHS = 20
 EVAL_BATCH_SIZE = 64
 EVAL_FREQUENCY = 100  # Number of steps between evaluations.
 

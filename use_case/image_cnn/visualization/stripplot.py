@@ -8,10 +8,12 @@ import datetime
 import pandas as pd
 import seaborn as sns
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-log_path = os.path.join(current_dir, os.path.pardir, 'log', datetime.date.today().strftime('%Y%m%d') + '.log')
+module_dir = os.path.dirname(os.path.abspath(__file__))
+module_name = os.path.basename(__file__).split('.')[0]
 
-logger = logging.getLogger('visualize')
+log_path = os.path.join(module_dir, os.path.pardir, 'logs', module_name + '_' + datetime.date.today().strftime('%Y%m%d') + '.log')
+
+logger = logging.getLogger(module_name)
 logger.setLevel(logging.DEBUG)
 fh = logging.FileHandler(log_path)
 ch = logging.StreamHandler()
