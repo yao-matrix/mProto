@@ -101,7 +101,7 @@ def load_img(img_path, to_img_size = None):
     # print to_img_size
 
     if to_img_size != None and (height != to_img_size[0] or width != to_img_size[1]):
-      resized = cv2.resize(img, (to_img_size[1], to_img_size[0]), interpolation = cv2.INTER_CUBIC);
+      resized = cv2.resize(img, (to_img_size[1], to_img_size[0]), interpolation = cv2.INTER_CUBIC)
       return resized
     else:
       return img

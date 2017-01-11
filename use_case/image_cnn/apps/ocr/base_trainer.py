@@ -250,7 +250,7 @@ def main(argv = None):
 
     # Model persistence
     saver = tf.train.Saver([conv1_weights, conv1_biases, conv2_weights, conv2_biases, fc1_weights, fc1_biases])
-    model_path = os.path.join(model_dir, "lenet_base.ckpt")
+    model_path = os.path.join(model_dir, "base", "lenet_base.ckpt")
     save_path = saver.save(sess, model_path)
     logger.info("Model saved in file: %s" % save_path)
 

@@ -42,7 +42,7 @@ logger.addHandler(ch)
 
 SEED = 66478  # Set to None for random seed.
 BATCH_SIZE = 64
-NUM_EPOCHS = 20
+NUM_EPOCHS = 50
 EVAL_BATCH_SIZE = 64
 EVAL_FREQUENCY = 100  # Number of steps between evaluations.
 
@@ -51,8 +51,8 @@ FLAGS = tf.app.flags.FLAGS
 
 def main(argv = None):  # pylint: disable=unused-argument
   # load imageset
-  train_set_folder = os.path.join(module_dir, os.path.pardir, os.path.pardir, 'data/test')
-  test_set_folder = os.path.join(module_dir, os.path.pardir, os.path.pardir, 'data/test')
+  train_set_folder = os.path.join(module_dir, os.path.pardir, os.path.pardir, 'data/ocr/train')
+  test_set_folder = os.path.join(module_dir, os.path.pardir, os.path.pardir, 'data/ocr/test')
 
   # Extract it into numpy arrays.
   train_data, train_labels = load_imageset(train_set_folder, to_img_size = (28, 28, 1), ext = 'png')
@@ -220,13 +220,12 @@ def main(argv = None):  # pylint: disable=unused-argument
     tf.initialize_all_variables().run()
     # Import base model weights
     saver = tf.train.Saver([conv1_weights, conv1_biases, conv2_weights, conv2_biases, fc1_weights, fc1_biases])
-    ckpt = tf.train.get_checkpoint_state(model_dir)
+    ckpt = tf.train.get_checkpoint_state(os.path.join(model_dir, 'base'))
     if ckpt and ckpt.model_checkpoint_path:
       logger.info("Continue training from the model {}".format(ckpt.model_checkpoint_path))
       saver.restore(sess, ckpt.model_checkpoint_path)
     # for var in tf.trainable_variables():
     #  logger.info(var.eval())
-
 
     logger.info('Initialized!')
     # Loop through training steps.
@@ -260,8 +259,8 @@ def main(argv = None):  # pylint: disable=unused-argument
     logger.info('Test precision: %.1f%%' % test_precision)
 
     # Model persistence
-    saver = tf.train.Saver([conv1_weights, conv1_biases, conv2_weights, conv2_biases, fc1_weights, fc1_biases])
-    model_path = os.path.join(model_dir, "lenet_finetuned.ckpt")
+    saver = tf.train.Saver([conv1_weights, conv1_biases, conv2_weights, conv2_biases, fc1_weights, fc1_biases, fc2_weights, fc2_biases])
+    model_path = os.path.join(model_dir, "finetuned", "lenet_finetuned.ckpt")
     save_path = saver.save(sess, model_path)
     logger.info("Model saved in file: %s" % save_path)
 
