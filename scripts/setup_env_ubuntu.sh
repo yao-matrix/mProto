@@ -20,7 +20,7 @@ sudo apt-get install -y openjdk-8-jdk
 sudo apt-get install -y bison g++-multilib build-essential gperf libxml2-utils
 sudo apt-get install -y make cmake
 
-# Caffe
+# Caffe environment
 sudo apt-get install -y libleveldb-dev liblmdb-dev libhdf5-serial-dev
 sudo apt-get install -y libsnappy-dev
 sudo apt-get install -y libopencv-dev
@@ -47,6 +47,7 @@ sudo apt-get install -y python-numpy python-scipy python-matplotlib python-sklea
 sudo apt-get install -y swig doxygen
 pip install 'sphinx>=1.4.0'
 pip install sphinx_rtd_theme breathe recommonmark
+pip install tqdm
 
 # project management
 sudo apt-get install -y maven
