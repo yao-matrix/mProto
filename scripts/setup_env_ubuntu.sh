@@ -29,11 +29,11 @@ sudo apt-get install -y --no-install-recommends libboost-all-dev
 sudo apt-get install -y libgflags-dev libgoogle-glog-dev libgtest-dev
 sudo apt-get install -y libatlas-base-dev
 
-pushd /usr/src/gtest
-cmake .
-make
-sudo cp *a /usr/lib
-popd
+# pushd /usr/src/gtest
+# cmake .
+# make
+# sudo cp *a /usr/lib
+# popd
 
 # set pip source
 if [! -d "~/.pip"]; then
