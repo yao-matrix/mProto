@@ -1,0 +1,6 @@
+performance tuning in CPU:
+1. HT on/off
+2. Turbo on/off
+3. core binding
+4. per core pstate setting
+5. ...
