@@ -52,7 +52,7 @@ echo
 echo "-------------------NUMA and MCDRAM mode---------------------"
 CLUSTER_MODE=`hwloc-dump-hwdata | grep -i Cluster\ Mode: | awk -F ' ' '{print $3}'`
 echo "Cluster Mode: "$CLUSTER_MODE
-MEMORY_MODE=`hwloc-dump-hwdata | grep -i Cluster\ Mode: | awk -F ' ' '{print $(NF)}'` 
+MEMORY_MODE=`hwloc-dump-hwdata | grep -i Memory\ Mode: | awk -F ' ' '{print $(NF)}'` 
 echo "Memory Mode: "$MEMORY_MODE
 echo
 
