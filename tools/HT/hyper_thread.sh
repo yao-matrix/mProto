@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Examples:
 #  turn on HT:
@@ -16,7 +16,8 @@ online_cores=`cat /sys/devices/system/cpu/cpu*/online | grep -o '1' | wc -l`
 offline_cores=`cat /sys/devices/system/cpu/cpu*/online | grep -o '0' | wc -l`
 # echo ${offline_cores}
 ht=0
-if [ ${offline_cores} == ${online_cores} ]
+threads_per_core=`lscpu | grep "per core" | awk -F ':' '{print $2}' | sed 's/^ *\| *$//g'`
+if [[ ${threads_per_core} == 1 ]]
 then
 	echo "Hyper Threading is OFF"
 else
