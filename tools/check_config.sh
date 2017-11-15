@@ -1,25 +1,24 @@
 #!/bin/bash
 
+## check OS
 echo "=====================OS ENVIRONMENT==============="
-# check CPU
+echo "-------------------OS VERSION---------------------"
+OS_VERSION=`uname -a`
+echo $OS_VERSION
+echo
+
+
+
+## check CPU
+echo "=====================CPU SETTINGS==============="
+## overall
 # CPU_NAME=`cat /proc/cpuinfo | grep "model name" | awk -F ':' '{print $2}' | uniq`
 CPU_INFO=`lscpu`
 echo "-----------------CPU INFO-------------------"
 echo "$CPU_INFO"
 echo
 
-# check DDR
-RAM_SIZE=`free -h`
-echo "----------------MEMORY SIZE-----------------"
-echo "$RAM_SIZE"
-echo
-
-echo "-------------MEMORY CLOCK SPEED--------------"
-RAM_CLOCK=`dmidecode -t memory | grep -ie HZ`
-echo "$RAM_CLOCK"
-echo
-
-# check HT
+## HT
 HT=`lscpu | grep "per core" | awk -F ':' '{print $2}' | sed 's/^ *\| *$//g'`
 echo "------------------HT---------------------"
 if [[ ${HT} == 1 ]]; then
@@ -31,9 +30,9 @@ else
 fi
 echo
 
-# check TURBO
+## TURBO state
 TURBO=`cat /sys/devices/system/cpu/intel_pstate/no_turbo`
-echo "-------------------TURBO---------------------"
+echo "-------------------TURBO STATE---------------------"
 if [[ ${TURBO} == 1 ]]; then
 	echo "OFF"
 else
@@ -41,32 +40,44 @@ else
 fi
 echo
 
-# check CPU power governor
+## power governor
 echo "-------------------POWER GOVERNOR---------------------"
 POWER_GOVERNOR=`cpupower frequency-info | grep \"*\" | awk -F '\"' '{print $2}'`
 echo $POWER_GOVERNOR
 echo
 
-# check NUMA and MCDRAM configuration
-# You should $yum install hwloc
-echo "-------------------NUMA and MCDRAM mode---------------------"
+
+
+## check memory
+echo "=====================MEMORY CONFIGURATIONS==============="
+RAM_SIZE=`free -h`
+echo "----------------MEMORY CAPACITY-----------------"
+echo "$RAM_SIZE"
+echo
+
+echo "-------------MEMORY CLOCK SPEED--------------"
+RAM_CLOCK=`dmidecode -t memory | grep -ie HZ`
+echo "$RAM_CLOCK"
+echo
+
+echo "-------------NUMA MODE-----------------------"
+NUMA_INFO=`numactl -H`
+echo "$NUMA_INFO"
+echo
+
+## MCDRAM configuration (for Phi Only)
+## You should $yum install hwloc
+echo "-------------------MCDRAM mode(Phi Only)---------------------"
 CLUSTER_MODE=`hwloc-dump-hwdata | grep -i Cluster\ Mode: | awk -F ' ' '{print $3}'`
 echo "Cluster Mode: "$CLUSTER_MODE
 MEMORY_MODE=`hwloc-dump-hwdata | grep -i Memory\ Mode: | awk -F ' ' '{print $(NF)}'` 
 echo "Memory Mode: "$MEMORY_MODE
 echo
 
-# check OS
-echo "-------------------OS VERSION---------------------"
-OS_VERSION=`uname -a`
-echo $OS_VERSION
-echo
-echo
-echo
 
+## check software settings
 echo "===================SOFTWARE SETTINGS===================="
-
-# check threads env
+# threadings
 echo "-------------------THREADS ENV---------------------"
 MKL_NUM_THREADS=`env | grep MKL_NUM_THREADS`
 echo ${MKL_NUM_THREADS}
@@ -93,7 +104,7 @@ else
 fi
 echo
 
-# check GCC version
+## GCC version
 echo "-------------------GCC VERSION---------------------"
 GCC_VERSION=`gcc --version`
 echo $GCC_VERSION
