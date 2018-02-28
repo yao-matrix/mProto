@@ -15,7 +15,7 @@ fi
 echo "OS: "${OS}
 
 # set pip source
-if [! -d "~/.pip"]; then
+if [ ! -d "~/.pip" ]; then
     sudo mkdir ~/.pip
 fi
 cp pip.conf ~/.pip/
@@ -74,9 +74,14 @@ if [ ${OS} = 'Ubuntu' ]; then
     sudo apt-get install -y libopus-dev
     sudo apt-get install -y ffmpeg
 elif [ ${OS} = 'CentOS' ]; then
+    yum install vim htop
     # Caffe environment
-    yum install -y python-pip
+    yum -y install epel-release
+    yum install -y python-pip python-devel gstreamer-plugins-base-devel libv4l ffmpeg-devel
+    yum install gcc gcc-c++ gtk+-devel libjpeg-devel libtiff-devel jasper-devel libpng-devel zlib-devel cmake
+    yum install git gtk2-devel pkgconfig
     yum install -y protobuf-devel leveldb-devel snappy-devel opencv-devel hdf5-devel boost-devel gflags-devel glog-devel lmdb-devel
+    yum install mplayer memcoder flvtool2 libdc1394 gtk*
 fi
 
 pip install 'sphinx>=1.4.0'
