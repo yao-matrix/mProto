@@ -18,6 +18,21 @@ echo "-----------------CPU INFO-------------------"
 echo "$CPU_INFO"
 echo
 
+
+## Cache Hierarchy
+CACHE_PROP=`dmidecode -t cache`
+echo "-----------------Cache Prop-------------------"
+echo "$CACHE_PROP"
+echo
+
+for d in /sys/devices/system/cpu/cpu0/cache/index*;
+    do tail -c+1 $d/{level,type,size,ways_of_associativity}
+    echo
+done
+
+
+getconf -a | grep CACHE
+
 ## HT
 HT=`lscpu | grep "per core" | awk -F ':' '{print $2}' | sed 's/^ *\| *$//g'`
 echo "------------------HT---------------------"
