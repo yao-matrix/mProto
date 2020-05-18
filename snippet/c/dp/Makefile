@@ -11,9 +11,9 @@ UTIL_DIR=$(PWD)
 
 CC:=gcc
 CXX:=g++
-# CXXFLAGS:=-Wall -O3 -march=native -mtune=native
+CXXFLAGS:=-Wall -O3 -march=native -mtune=native
 # CXXFLAGS:=-std=gnu++11 -march=skylake-avx512 -O3
-CXXFLAGS:=-std=gnu++11 -mavx2 -mfma -O3
+# CXXFLAGS:=-std=gnu++11 -mavx2 -mfma -O3
 
 
 LFLAGS:= -lrt
@@ -24,7 +24,9 @@ OBJS=$(SRCS:%.cpp=%.o)
 
 TARGET_EXE=dp
 
-all: clean build post_clean
+# all: clean build post_clean
+
+all: build
 
 build: $(TARGET_EXE)
 $(TARGET_EXE):$(OBJS)
