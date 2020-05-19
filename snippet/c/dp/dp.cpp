@@ -8,7 +8,8 @@
 #define TIME_DIFF(a,b) ((b.tv_sec - a.tv_sec) * 1000000 + (b.tv_usec - a.tv_usec))
 #define BS 4
 #define VECTOR_DIM 128
- 
+
+
 static inline float horizontal_add_v256(__m256 v) {
     __m256 x1 = _mm256_hadd_ps(v, v);
     __m256 x2 = _mm256_hadd_ps(x1, x1);
@@ -19,6 +20,9 @@ static inline float horizontal_add_v256(__m256 v) {
     return _mm_cvtss_f32(x4);
 }
 
+
+// #if defined(__AVX2__) 
+#if 1
 
 #if 1
 void dotp_avx2(const float *lhs, const float *rhs, size_t size, float *score) {
@@ -75,16 +79,18 @@ void dotp4_avx2(const float *base, const float *query, size_t offset, size_t siz
 
     return;
 }
+#endif
+
 
 #if defined(__AVX512F__)
 static inline float horizontal_add_v512(__m512 v) {
     __m256 low = _mm512_castps512_ps256(v);
     __m256 high = _mm256_castpd_ps(_mm512_extractf64x4_pd(_mm512_castps_pd(v), 1));
 
-    return horizontal_add_v256(low) + horizontal_add_v256(high);
+    return horizontal_add_v256(low + high);
 }
 
-
+#if 1
 void dotp_avx3(const float *lhs, const float *rhs, size_t size, float *score) {
 
     __m512 zmm_sum0 = _mm512_setzero_ps();
@@ -100,6 +106,22 @@ void dotp_avx3(const float *lhs, const float *rhs, size_t size, float *score) {
 
     return;
 }
+#else
+void dotp_avx3(const float *lhs, const float *rhs, size_t size, float *score) {
+    __m512 zmm_sum0 = _mm512_setzero_ps();
+    __m512 zmm_sum1 = _mm512_setzero_ps();
+
+
+    for (size_t i = 0; i < size; i += 32) {
+        zmm_sum0 = _mm512_fmadd_ps(_mm512_castsi512_ps(_mm512_stream_load_si512((__m512i*)(lhs + i))), _mm512_loadu_ps(rhs + i), zmm_sum0);
+        zmm_sum1 = _mm512_fmadd_ps(_mm512_castsi512_ps(_mm512_stream_load_si512((__m512i*)(lhs + i + 16))), _mm512_loadu_ps(rhs + i + 16), zmm_sum1);
+    }
+
+    *score = horizontal_add_v512(_mm512_add_ps(zmm_sum0, zmm_sum1));
+
+    return;
+}
+#endif
 
 
 void dotp4_avx3(const float *base, float *query, size_t offset, size_t size, float *score) {
@@ -110,8 +132,8 @@ void dotp4_avx3(const float *base, float *query, size_t offset, size_t size, flo
     // size_t index = offset / size;
 
     for (size_t i = 0; i < size; i += 32) {
-        __m512 v_base_0 = _mm512_loadu_ps(base + offset);
-        __m512 v_base_1 = _mm512_loadu_ps(base + offset + 16);
+        __m512 v_base_0 = _mm512_loadu_ps(base + offset + i);
+        __m512 v_base_1 = _mm512_loadu_ps(base + offset + i + 16);
 
         for (size_t j = 0; j < BS; j++) {
             zmm_sum_0[j] = _mm512_fmadd_ps(v_base_0, _mm512_loadu_ps(query + j * size + i), zmm_sum_0[j]);
@@ -156,7 +178,9 @@ int main(int argc, char *argv[]) {
     }
 #endif
 
-#if 1
+#if defined(__AVX2__)
+
+#if 0
     // warm up
     for (size_t i = 0; i < base_elms; i += VECTOR_DIM) {
         for (size_t j = 0; j < BS; j++) {
@@ -200,10 +224,11 @@ int main(int argc, char *argv[]) {
     printf("[AVX2 batch] result: %f, time(ms): %f\n", score[0], TIME_DIFF(start, end) / 1000.0);
     fflush(stdout);
 #endif
+#endif
 
 #if defined(__AVX512F__)
 
-#if 0
+#if 1
     // warm up
     for (size_t i = 0; i < base_elms; i += VECTOR_DIM) {
         for (size_t j = 0; j < BS; j++) {
