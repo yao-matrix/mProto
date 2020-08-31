@@ -8,12 +8,13 @@
 # scl enable devtoolset-7 bash
 
 ## vanilla
-taskset -c 2 ./dp
+# taskset -c 2 ./dp
 
 ## vtune
-# source /opt/intel/vtune_amplifier/amplxe-vars.sh
+source /opt/intel/vtune_amplifier/amplxe-vars.sh
 # amplxe-cl -collect uarch-exploration  -- ./dp
-# amplxe-cl -collect uarch-exploration -knob sampling-interval=1 -- taskset -c 2 ./dp
+amplxe-cl -collect uarch-exploration -knob sampling-interval=1 -- taskset -c 2 ./dp
+# amplxe-cl -collect uarch-exploration -start-paused -resume-after 10 -knob sampling-interval=1 -- taskset -c 2 ./dp
 # amplxe-cl -collect memory-access -knob sampling-interval=1 -- ./dp
 
 ## valgrind

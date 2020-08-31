@@ -186,6 +186,7 @@ void dotp_avx3_block(const float *query, const float *base, size_t bs, size_t di
     __m512 v_base0;
     __m512 v_q0, v_q1;
 
+
     for (size_t i = 0; i < dim; i += 1) {
         v_base0 = _mm512_loadu_ps(base + i * 16);
 
@@ -205,8 +206,8 @@ void dotp_avx3_block(const float *query, const float *base, size_t bs, size_t di
     }
 
     for (size_t j = 0; j < bs; j++) {
-        _mm512_store_ps(scores + j * 16, zmm_sum0[j]); 
-        // _mm512_stream_ps(scores + j * 16, zmm_sum0[j]);
+        // _mm512_store_ps(scores + j * 16, zmm_sum0[j]); 
+        _mm512_stream_ps(scores + j * 16, zmm_sum0[j]);
    }
 
     // free(zmm_sum0);
@@ -238,7 +239,7 @@ int main(int argc, char *argv[]) {
     query = (float*)memalign(align_size, sizeof(float) * vec_dim * bs);
     scores = (float*)memalign(align_size, sizeof(float) * bs * base_vec_num);
 
-    size_t loop = 10;
+    size_t loop = 100;
 
 #if 1
     // fill buffers
