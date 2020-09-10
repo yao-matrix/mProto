@@ -11,8 +11,8 @@ UTIL_DIR=$(PWD)
 
 CC:=gcc
 CXX:=g++
-CXXFLAGS:=-Wall -O3 -march=native -mtune=native
-# CXXFLAGS:=-std=gnu++11 -march=skylake-avx512 -O3
+# CXXFLAGS:=-Wall -O3 -march=native -mtune=native
+CXXFLAGS:=-std=gnu++11 -mavx2 -mavx512f -mfma -O3
 # CXXFLAGS:=-std=gnu++11 -mavx2 -mfma -O3
 
 
@@ -43,4 +43,3 @@ clean:
 post_clean:
 	find $(SRC_DIR)/ -name "*.o" | xargs rm -rf
 	find $(UTIL_DIR)/ -name "*.o" | xargs rm -rf
-t
