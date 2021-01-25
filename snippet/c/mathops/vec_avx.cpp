@@ -16,21 +16,21 @@
 
 #ifdef __AVX2__
 /*
- * Algorithm 1: 1-order Tayor expansion
+ * Algorithm 1: integer expansion
  *   from https://gist.github.com/andersx/8057b2a6fd3d715d35eb
  *
  */
 static float* exp8_fastest_approx(float* data, size_t num, float* results) {
 
-    const __m256 C1 = _mm256_set1_ps(1064872507.1541044f);
-    const __m256 C2 = _mm256_set1_ps(12102203.161561485f);
+    const __m256 C0 = _mm256_set1_ps(1064872507.1541044f);
+    const __m256 C1 = _mm256_set1_ps(12102203.161561485f);
 
     __m256  X, Y;
  
     for (size_t i = 0; i < num; i += 8) {
         X = _mm256_loadu_ps(data + i);
 
-        Y = _mm256_castsi256_ps(_mm256_cvttps_epi32(_mm256_fmadd_ps(C2, X, C1)));
+        Y = _mm256_castsi256_ps(_mm256_cvttps_epi32(_mm256_fmadd_ps(C1, X, C0)));
 
         _mm256_store_ps(results + i, Y);
     }

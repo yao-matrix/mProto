@@ -239,7 +239,7 @@ int main(int argc, char *argv[]) {
     query = (float*)memalign(align_size, sizeof(float) * vec_dim * bs);
     scores = (float*)memalign(align_size, sizeof(float) * bs * base_vec_num);
 
-    size_t loop = 100;
+    size_t loop = 1000;
 
 #if 1
     // fill buffers

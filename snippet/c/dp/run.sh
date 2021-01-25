@@ -10,10 +10,16 @@
 ## vanilla
 # taskset -c 2 ./dp
 
+
+## roofline analysis
+source /opt/intel/parallel_studio_xe_2020/advisor_2020/advixe-vars.sh
+advixe-cl -collect=roofline -project-dir=./roofline -- taskset -c 2 ./dp
+
+
 ## vtune
-source /opt/intel/vtune_amplifier/amplxe-vars.sh
+# source /opt/intel/vtune_amplifier/amplxe-vars.sh
 # amplxe-cl -collect uarch-exploration  -- ./dp
-amplxe-cl -collect uarch-exploration -knob sampling-interval=1 -- taskset -c 2 ./dp
+# amplxe-cl -collect uarch-exploration -knob sampling-interval=1 -- taskset -c 2 ./dp
 # amplxe-cl -collect uarch-exploration -start-paused -resume-after 10 -knob sampling-interval=1 -- taskset -c 2 ./dp
 # amplxe-cl -collect memory-access -knob sampling-interval=1 -- ./dp
 

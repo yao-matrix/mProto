@@ -11,7 +11,7 @@ UTIL_DIR=$(PWD)
 
 CC:=gcc
 CXX:=g++
-CXXFLAGS:=-Wall -O3 -march=native -mtune=native
+CXXFLAGS:=-Wall -O3 -march=native -mtune=native -g
 # CXXFLAGS:=-std=gnu++11 -march=skylake-avx512 -O3
 # CXXFLAGS:=-std=gnu++11 -mavx2 -mfma -O3
 

@@ -1,0 +1,4 @@
+[submodule "tools/gemm_bench/thirdparty/oneDNN"]
+	path = tools/gemm_bench/thirdparty/oneDNN
+	url = https://github.com/oneapi-src/oneDNN.git
+	branch = master
